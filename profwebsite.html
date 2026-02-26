@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. B.K. Mohanty | IIT Mandi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================
+           GLOBAL STYLES
+           ============================ */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0B132B; 
+            color: #FFFFFF;
+            scroll-behavior: smooth;
+        }
+
+        /* ============================
+           HERO SECTION
+           ============================ */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(11, 19, 43, 0.95) 0%, rgba(28, 37, 65, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            padding: 4rem 5%;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 3.5rem 4rem;
+            max-width: 850px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            animation: fadeIn 1.5s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Profile Image Styling */
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #FFD700;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            color: #FFFFFF;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #FFD700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #D1D5DB;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #FFD700;
+            color: #0B132B;
+            border: 2px solid #FFD700;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #FFD700;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 2px solid #FFFFFF;
+        }
+
+        .btn-secondary:hover {
+            background-color: #FFFFFF;
+            color: #0B132B;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================
+           EXPERTISE SECTION
+           ============================ */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .expertise-card {
+            background: #1C2541;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            background: #232E4D;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .expertise-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #A0AEC0;
+            margin-bottom: 0;
+        }
+
+        /* ============================
+           IMPACT & PUBLICATIONS
+           ============================ */
+        .metrics-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .metric-box {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .metric-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 0;
+            color: #0B132B;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+            color: #0B132B;
+        }
+
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pub-card {
+            background: #0B132B;
+            border-left: 4px solid #FFD700;
+            padding: 2rem;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .pub-card:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.3);
+            background: #1C2541;
+        }
+
+        .pub-category {
+            font-size: 0.85rem;
+            color: #A0AEC0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .pub-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin: 1rem 0;
+            color: #FFFFFF;
+            line-height: 1.4;
+        }
+
+        .pub-desc {
+            font-size: 0.95rem;
+            color: #D1D5DB;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .pub-link {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .pub-link:hover {
+            color: #FFFFFF;
+        }
+
+        /* ============================
+           CONTACT & FOOTER
+           ============================ */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+
+        .contact-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info p {
+            font-size: 1.05rem;
+            color: #D1D5DB;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form-wrapper {
+            flex: 1;
+            min-width: 320px;
+            background: #1C2541;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-top: 4px solid #FFD700;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #A0AEC0;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group input, 
+        .input-group select, 
+        .input-group textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #2D3748;
+            color: #FFFFFF;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus, 
+        .input-group select:focus, 
+        .input-group textarea:focus {
+            outline: none;
+            border-bottom-color: #FFD700;
+        }
+
+        .input-group select option {
+            background-color: #1C2541;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <img src="mohanty-profile.png" alt="Dr. Bhaba Krishna Mohanty" class="profile-img">
+            
+            <h1>Dr. Bhaba Krishna Mohanty</h1>
+            <h2>Adjunct Professor, School of Management, IIT Mandi <br> Retired Professor, IIM Lucknow</h2>
+            
+            <p>An accomplished academic and researcher specializing in Decision Making. With more than 30 years of teaching experience in Operations Research, Fuzzy Logic, and IT Management, I bridge the gap between rigorous mathematical modeling and high-impact e-commerce applications.</p>
+            
+            <div class="cta-container">
+                <a href="#publications" class="btn btn-primary">Explore Research</a>
+                <a href="#contact" class="btn btn-secondary">Engage & Consult</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" style="padding: 5rem 10%; background-color: #0B132B; color: #FFFFFF;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #FFFFFF; margin-bottom: 1rem;">Core Areas of Interest</h2>
+            <div style="width: 60px; height: 4px; background-color: #FFD700; margin: 0 auto; border-radius: 2px;"></div>
+        </div>
+
+        <div class="cards-container">
+            <div class="expertise-card">
+                <div class="card-icon">🧠</div>
+                <h3>Multicriteria Decision Making</h3>
+                <p>Applying advanced mathematical models and hesitant fuzzy sets to solve complex, multi-attribute decision-making problems under uncertain and highly dynamic environments.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="card-icon">📊</div>
+                <h3>Fuzzy Data Mining & Analytics</h3>
+                <p>Leveraging fuzzy logic algorithms to extract nuanced insights from data, significantly enhancing recommendation systems and understanding deeper consumer preferences.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="card-icon">🛡️</div>
+                <h3>Software Risk Management</h3>
+                <p>Utilizing quantitative frameworks and soft computing techniques to estimate operational profiles, ensuring reliability and managing risks in complex IT and software deployments.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" style="padding: 4rem 10%; background-color: #FFD700; color: #0B132B; text-align: center;">
+        <div class="metrics-container">
+            <div class="metric-box">
+                <h2 class="metric-number">30+</h2>
+                <p class="metric-label">Years of Academic Experience</p>
+            </div>
+            <div class="metric-box">
+                <h2 class="metric-number">50+</h2>
+                <p class="metric-label">International Publications</p>
+            </div>
+            <div class="metric-box">
+                <h2 class="metric-number">Ph.D.</h2>
+                <p class="metric-label">IIT Kharagpur Alumnus</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" style="padding: 5rem 10%; background-color: #121A30; color: #FFFFFF;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">Selected Publications</h2>
+            <div style="width: 60px; height: 4px; background-color: #FFD700; margin: 0 auto; border-radius: 2px;"></div>
+        </div>
+
+        <div class="publications-grid">
+            <div class="pub-card">
+                <span class="pub-category">Soft Computing</span>
+                <h3 class="pub-title">A preference structure in Multi-Attribute Decision Making</h3>
+                <p class="pub-desc">An algorithmic approach based on Hesitant Fuzzy Sets to model and resolve complex decision-making scenarios where criteria evaluation involves significant uncertainty.</p>
+                <a href="#" class="pub-link">Read Abstract &rarr;</a>
+            </div>
+            <div class="pub-card">
+                <span class="pub-category">IIMB Management Review</span>
+                <h3 class="pub-title">Understanding consumer preference through fuzzy-based recommendation</h3>
+                <p class="pub-desc">Bridging consumer behavior and analytics by utilizing a fuzzy-based recommendation system to better capture the nuances of user preferences in digital marketplaces.</p>
+                <a href="#" class="pub-link">View Journal &rarr;</a>
+            </div>
+            <div class="pub-card">
+                <span class="pub-category">Industrial Management & Data Systems</span>
+                <h3 class="pub-title">Strategizing sustainability in e-commerce channels</h3>
+                <p class="pub-desc">An integration of value-focused thinking and fuzzy cognitive maps to optimize and strategize sustainable practices within additive manufacturing e-commerce channels.</p>
+                <a href="#" class="pub-link">View Research &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="padding: 5rem 10%; background-color: #0B132B; color: #FFFFFF;">
+        <div class="contact-container">
+            <div class="contact-text">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; color: #FFD700;">Initiate a Dialogue</h2>
+                <p style="font-size: 1.1rem; color: #A0AEC0; line-height: 1.6; margin-bottom: 2rem;">
+                    Whether you are seeking advisory on fuzzy data mining frameworks, inquiring about multicriteria decision modeling, or proposing academic collaboration, please reach out below.
+                </p>
+                <div class="contact-info">
+                    <p>📍 School of Management, IIT Mandi, Himachal Pradesh</p>
+                    <p>✉️ bhaba@iitmandi.ac.in</p>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form class="custom-form">
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="e.g., Jane Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="name@organization.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="inquiry">Nature of Inquiry</label>
+                        <select id="inquiry">
+                            <option>Academic Research / Publications</option>
+                            <option>Corporate Consulting</option>
+                            <option>Speaking Engagement</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" placeholder="Briefly describe your objective..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Inquiry &rarr;</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: #050914; padding: 2rem 10%; text-align: center; color: #718096; font-size: 0.9rem;">
+        <div style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 1.5rem;">
+            <a href="#" style="color: #A0AEC0; text-decoration: none; transition: color 0.3s;">IIT Mandi Portal</a>
+            <a href="#" style="color: #A0AEC0; text-decoration: none; transition: color 0.3s;">Google Scholar</a>
+        </div>
+        <p>&copy; 2026 Dr. B.K. Mohanty. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
